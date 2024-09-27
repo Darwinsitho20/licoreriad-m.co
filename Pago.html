@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Pagos</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            flex-direction: column;
+        }
+
+        .container {
+            text-align: center;
+            position: relative;
+            top: -50px;
+        }
+
+        .payment-box {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 20px;
+            width: 300px;
+            margin: 0 auto;
+        }
+
+        .payment-box h2 {
+            margin-bottom: 20px;
+        }
+
+        .payment-box label {
+            display: block;
+            margin-bottom: 5px;
+            text-align: center;
+        }
+
+        .payment-box input {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin: 0 auto 15px;
+            border: none;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .buy-button {
+            background-color: #cc9900;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: transform 0.2s;
+            width: calc(100% - 20px);
+            display: inline-block;
+            text-align: center;
+            text-decoration: none;
+            margin: 10px auto;
+        }
+
+        .print-button {
+            background-color: #d9534f;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: transform 0.2s;
+            width: calc(100% - 20px);
+            display: inline-block;
+            text-align: center;
+            text-decoration: none;
+            margin: 10px auto;
+        }
+
+        .circle-container {
+            display: flex;
+            justify-content: space-around;
+            margin-top: auto;
+            padding: 20px 0;
+        }
+
+        .circle {
+            width: 90px;
+            height: 90px;
+            background-color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 15px;
+            overflow: hidden;
+            transition: transform 0.2s;
+        }
+
+        .circle img {
+            width: 80%;
+            height: auto;
+        }
+
+        .circle:hover {
+            transform: scale(1.1);
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="payment-box">
+            <h2>Sistema de Pagos</h2>
+            <label for="reference">Nº de referencia:</label>
+            <input type="text" id="reference" name="reference" placeholder="Ingrese referencia">
+            <label for="product">Producto:</label>
+            <input type="text" id="product" name="product" placeholder="Ingrese nombre del producto">
+            <label for="date">Fecha de compra:</label>
+            <input type="date" id="date" name="date" value="1950-01-01">
+            <label for="units">Unidades:</label>
+            <input type="number" id="units" name="units" placeholder="Ingrese unidades" min="1">
+            <label for="price">Precio (en dinero):</label>
+            <input type="text" id="price" name="price" placeholder="Ingrese el precio del producto">
+            <button class="buy-button" id="buyButton">Comprar Producto</button>
+            <button class="print-button" id="printButton">Imprimir Recibo</button>
+        </div>
+        <div class="circle-container">
+            <a href="ruta/a/tu/archivo.xlsx" class="circle" target="_blank"><img src="https://milenioplazacc.co/wp-content/uploads/2019/09/Marca-Bancolombia.png" alt="Producto 1"></a>
+            <a href="https://www.nequi.com.co/" class="circle"><img src="https://brandemia.org/contenido/subidas/2023/10/nequi-nuevo-logotipo.jpg" alt="Producto 2"></a>
+            <a href="https://www.daviplata.com/wps/portal/daviplata/Home/QueEsDaviPlata/!ut/p/z1/hY7BDoIwEES_hQNXdgUU462gQY3R4EGhFwOmFkyhpFT4fWs8kWCc2-68mQxQSIE2eV_xXFeyyYW5M7q4BYmP28ifHWMSbTBBN9itLx5i7MP1H0CNjT9E0OTpBEIwPLvhp-DkTgKjjj1QLmTxnUuawltyoIo9mGLKeSnzLrVuu5WNNg7D4HApuWDOXdY2TkVK2WlIxyS0dYrPuegPxLLeIhg6wg!!/dz/d5/L2dBISEvZ0FBIS9nQSEh/" class="circle"><img src="https://play-lh.googleusercontent.com/fIwuxVTuoLOzhrKJL6GCGIKuEJc6JFu9Ii97cp0nFWE61qpfeaIhFBiNL5wFcydvhQA" alt="Producto 3"></a>
+            <a href="https://www.efecty.com.co/web/" class="circle"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMy3tY66jbTapm4kJsl_icpaxnL-KhON7cMQ&s" alt="Producto 4"></a>
+            <a href="https://www.mastercard.com.co/es-co/consumidores/formas-de-pago/click-to-pay.html" class="circle"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSa8Qgn86KPR3al4bCxj-zfvNofa9xu2zdgQQ&s" alt="Producto 5"></a>
+            <a href="https://www.visa.com.co/pague-con-visa/tecnologias-presentadas/formas-de-pago.html" class="circle"><img src="https://i.pinimg.com/736x/43/ed/1d/43ed1d4685a1e776836cf19557cfca73.jpg" alt="Producto 6"></a>
+        </div>
+    </div>
+
+    <script>
+        // Función para manejar la compra
+        document.getElementById('buyButton').onclick = function() {
+            const reference = document.getElementById('reference').value;
+            const product = document.getElementById('product').value;
+            const date = document.getElementById('date').value;
+            const units = document.getElementById('units').value;
+            const price = document.getElementById('price').value;
+
+            // Crear objeto producto
+            const producto = {
+                "Nº de referencia": reference,
+                "Producto": product,
+                "Fecha de compra": date,
+                "Unidades": units,
+                "Precio": price
+            };
+
+            // Generar hoja de Excel
+            const wb = XLSX.utils.book_new();
+            const ws = XLSX.utils.json_to_sheet([producto]);
+            XLSX.utils.book_append_sheet(wb, ws, "Ventas");
+
+            // Descargar el archivo Excel
+            XLSX.writeFile(wb, 'ventas.xlsx');
+        };
+
+        // Función para imprimir el recibo
+        document.getElementById('printButton').onclick = function() {
+            const reference = document.getElementById('reference').value;
+            const product = document.getElementById('product').value;
+            const date = document.getElementById('date').value;
+            const units = document.getElementById('units').value;
+            const price = document.getElementById('price').value;
+
+            // Generar PDF
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+            doc.setFontSize(12);
+            doc.text(`Nº de referencia: ${reference}`, 10, 10);
+            doc.text(`Producto: ${product}`, 10, 20);
+            doc.text(`Fecha de compra: ${date}`, 10, 30);
+            doc.text(`Unidades: ${units}`, 10, 40);
+            doc.text(`Precio: ${price}`, 10, 50);
+            doc.save('recibo.pdf');
+        };
+    </script>
+</body>
+</html>

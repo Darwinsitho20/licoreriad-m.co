@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bienvenido a Nuestro Sitio</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background-image: url('https://nosvamosdevinos.com/wp-content/uploads/2022/07/La-Honda-fino-en-rama.jpg'); /* Ruta de la imagen de fondo */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            height: 100vh; /* 100% de la altura de la ventana */
+            perspective: 1000px; /* Añadido para el efecto 3D */
+            animation: fadeIn 2s; /* Animación de entrada */
+        }
+
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            padding: 10px;
+            background-color: #001F3F; /* Fondo verde marino para la barra superior */
+        }
+
+        .search-menu {
+            display: flex;
+            align-items: center;
+        }
+
+        .search-input {
+            padding: 5px;
+            margin-right: 10px;
+        }
+
+        .search-button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .menu-buttons {
+            display: flex;
+        }
+
+        .explorar-btn,
+        .ley-btn {
+            background-color: #8FDB9B; /* Color verde claro para los botones */
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-left: 10px;
+            transition: background-color 0.3s; /* Añadido para el cambio de color suave */
+        }
+
+        .explorar-btn:hover,
+        .ley-btn:hover {
+            background-color: #4CAF50; /* Nuevo color al pasar el ratón */
+        }
+
+        .welcome-box {
+            text-align: center;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.7); /* Fondo semitransparente de color blanco */
+            border-radius: 10px;
+            margin: auto;
+            transform: rotateX(20deg); /* Rotación en el eje X para el efecto 3D */
+        }
+
+        .welcome-box h1, .welcome-box p {
+            color: black; /* Cambiado a negro */
+        }
+
+        button#verCatalogo {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+
+        .contact-section {
+            text-align: center;
+            background-color: black; /* Color negro en la parte inferior */
+            padding: 20px;
+            width: 100%;
+        }
+
+        .whatsapp-icon img {
+            width: 30px;
+            height: 30px;
+            margin-right: 10px;
+        }
+
+        .phone-number {
+            font-weight: bold;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="top-bar">
+        <div class="search-menu">
+            <input type="text" class="search-input" placeholder="Buscar...">
+            <button class="search-button">Buscar</button>
+        </div>
+
+        <div class="menu-buttons">
+            <button class="explorar-btn">Explorar Sitio</button>
+            <button class="ley-btn">Ley de Establecimiento</button>
+        </div>
+    </div>
+
+    <div class="welcome-box">
+        <h1>Bienvenido a Nuestro Sitio</h1>
+        <p>¡Descubre productos de alta calidad!</p>
+        <button id="verCatalogo">Ver Catálogo</button>
+    </div>
+
+    <div class="contact-section">
+        <div class="whatsapp-icon"><a href="https://wa.me/tunumerodecontacto" target="_blank"><img src="whatsapp-icon.png" alt="WhatsApp"></a></div>
+        <p>Contacto: <span class="phone-number">+57 3234202808</span></p>
+    </div>
+</body>
+</html>
+

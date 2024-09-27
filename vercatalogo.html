@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catalogo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('https://clubdelicatessen.com/wp-content/uploads/2021/06/tipos-de-licores.jpg'); /* Cambia 'ruta/a/tu/imagen.jpg' por la ruta de la imagen de fondo */
+            background-size: cover; /* Para que la imagen cubra toda la pantalla */
+            color: #ffffff; /* Texto blanco */
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap; /* Permite que los cuadros se acomoden en múltiples filas */
+            justify-content: space-between;
+            padding: 20px;
+            flex-grow: 1;
+        }
+
+        .details {
+            width: 70%; /* Ocupa la mayor parte de la pantalla */
+        }
+
+        .item {
+            background-color: rgba(51, 51, 51, 0.8); /* Fondo gris oscuro semi-transparente para cada item */
+            border: 1px solid #444; /* Borde gris más claro */
+            border-radius: 5px;
+            margin-bottom: 20px;
+            padding: 10px;
+            width: calc(30% - 20px); /* Ajusta el ancho para que quepan tres en una fila */
+            transition: transform 0.3s, background-color 0.3s;
+        }
+
+        .item:hover {
+            transform: scale(1.05); /* Aumenta ligeramente el tamaño al pasar el mouse */
+            background-color: rgba(68, 68, 68, 0.8); /* Cambio de color de fondo al pasar el mouse */
+        }
+
+        .item:active {
+            background-color: #555; /* Cambio de color al hacer clic */
+        }
+
+        .item-details {
+            margin-bottom: 10px;
+        }
+
+        .label {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .brand {
+            font-size: 14px;
+            color: #ccc; /* Texto en gris claro */
+        }
+
+        .price {
+            font-size: 20px;
+            font-weight: bold;
+            color: #ff9900; /* Color de precio en un tono naranja */
+            text-align: right;
+            cursor: pointer;
+        }
+
+        .item-link {
+            text-decoration: none; /* Sin subrayado en el enlace */
+            color: inherit; /* Hereda el color del texto */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="details">
+            <a href="Pago.html" class="item-link">
+                <div class="item">
+                    <div class="item-details">
+                        <div class="label">Aguardiente Antioqueño</div>
+                        <div class="brand">Colombia</div>
+                    </div>
+                    <div class="price" onclick="window.location.href='aguardiente.html';">₽ 50,000</div>
+                </div>
+            </a>
+            <a href="Pago.html" class="item-link">
+                <div class="item">
+                    <div class="item-details">
+                        <div class="label">Ron Medellín</div>
+                        <div class="brand">Colombia</div>
+                    </div>
+                    <div class="price" onclick="window.location.href='ron.html';">₽ 80,000</div>
+                </div>
+            </a>
+            <a href="Pago.html" class="item-link">
+                <div class="item">
+                    <div class="item-details">
+                        <div class="label">Tequila Don Julio</div>
+                        <div class="brand">México</div>
+                    </div>
+                    <div class="price" onclick="window.location.href='tequila.html';">₽ 120,000</div>
+                </div>
+            </a>
+            <a href="Pago.html" class="item-link">
+                <div class="item">
+                    <div class="item-details">
+                        <div class="label">Whisky Johnnie Walker</div>
+                        <div class="brand">Escocia</div>
+                    </div>
+                    <div class="price" onclick="window.location.href='whisky.html';">₽ 30,000</div>
+                </div>
+            </a>
+            <a href="Pago.html" class="item-link">
+                <div class="item">
+                    <div class="item-details">
+                        <div class="label">Vodka Smirnoff</div>
+                        <div class="brand">Rusia</div>
+                    </div>
+                    <div class="price" onclick="window.location.href='vodka.html';">₽ 150,000</div>
+                </div>
+            </a>
+            <a href="Pago.html" class="item-link">
+                <div class="item">
+                    <div class="item-details">
+                        <div class="label">Ginebra Tanqueray</div>
+                        <div class="brand">Inglaterra</div>
+                    </div>
+                    <div class="price" onclick="window.location.href='ginebra.html';">₽ 60,000</div>
+                </div>
+            </a>
+            <!-- 20 cuadros adicionales de licores -->
+            <a href="Pago.html" class="item-link">
+                <div class="item">
+                    <div class="item-details">
+                        <div class="label">Aguardiente Néctar</div>
+                        <div class="brand">Colombia</div>
+                    </div>
+                    <div class="price" onclick="window.location.href='nectar.html';">₽ 45,000</div>
+                </div>
+            </a>
+            <a href="Pago.html" class="item-link">
+                <div class="item">
+                    <div class="item-details">
+                        <div class="label">Ron Viejo de Caldas</div>
+                        <div class="brand">Colombia</div>
+                    </div>
+                    <div class="price" onclick="window.location.href='ronviejo.html';">₽ 70,000</div>
+                </div>
+            </a>
+            <a href="Pago.html" class="item-link">
+                <div class="item">
+                    <div class="item-details">
+                        <div class="label">Pisco Control</div>
+                        <div class="brand">Chile</div>
+                    </div>
+                    <div class="price" onclick="window.location.href='pisco.html';">₽ 85,000</div>
+                </div>
+            </a>
+            <a href="Pago.html" class="item-link">
+                <div class="item">
+                    <div class="item-details">
+                        <div class="label">Cerveza Águila</div>
+                        <div class="brand">Colombia</div>
+                    </div>
+                    <div class="price" onclick="window.location.href='cerveza.html';">₽ 8,000</div>
+                </div>
+            </a>
+            <a href="Pago.html" class="item-link">
+                <div class="item">
+                    <div class="item-details">
+                        <div class="label">Cerveza Poker</div>
+                        <div class="brand">Colombia</div>
+                    </div>
+                    <div class="price" onclick="window.location.href='cerveza.html';">₽ 8,500</div>
+                </div>
+            </a>
+            <a href="Pago.html" class="item-link">
+                <div class="item">
+                    <div class="item-details">
+                        <div class="label">Cerveza Club Colombia</div>
+                        <div class="brand">Colombia</div>
+                    </div>
+                    <div class="price" onclick="window.location.href='cerveza.html';">₽ 9,000</div>
+                </div>
+            </a>
+            <a href="Pago.html" class="item-link">
+                <div class="item">
+                    <div class="item-details">
+                        <div class="label">Licor de Café</div>
+                        <div class="brand">Colombia</div>
+                    </div>
+                    <div class="price" onclick="window.location.href='licorcafe.html';">₽ 35,000</div>
+                </div>
+            </a>
+            <a href="Pago.html" class="item-link">
+                <div class="item">
+                    <div class="item-details">
+                        <div class="label">Brandy Madero</div>
+                        <div class="brand">Colombia</div>
+                    </div>
+                    <div class="price" onclick="window.location.href='brandy.html';">₽ 65,000</div>
+                </div>
+            </a>
+            <a href="Pago.html" class="item-link">
+                <div class="item">
+                    <div class="item-details">
+                        <div class="label">Champagne Moët & Chandon</div>
+                        <div class="brand">Francia</div>
+                    </div>
+                    <div class="price" onclick="window.location.href='champagne.html';">₽ 300,000</div>
+                </div>
+            </a>
+            <a href="Pago.html" class="item-link">
+                <div class="item">
+                    <div class="item-details">
+                        <div class="label">Baileys Irish Cream</div>
+                        <div class="brand">Irlanda</div>
+                    </div>
+                    <div class="price" onclick="window.location.href='baileys.html';">₽ 120,000</div>
+                </div>
+            </a>
+            <a href="Pago.html" class="item-link">
+                <div class="item">
+                    <div class="item-details">
+                        <div class="label">Cachaca 51</div>
+                        <div class="brand">Brasil</div>
+                    </div>
+                    <div class="price" onclick="window.location.href='cachaca.html';">₽ 50,000</div>
+                </div>
+            </a>
+            <a href="Pago.html" class="item-link">
+                <div class="item">
+                    <div class="item-details">
+                        <div class="label">Jägermeister</div>
+                        <div class="brand">Alemania</div>
+                    </div>
+                    <div class="price" onclick="window.location.href='jagermeister.html';">₽ 90,000</div>
+                </div>
+            </a>
+            <a href="Pago.html" class="item-link">
+                <div class="item">
+                    <div class="item-details">
+                        <div class="label">Ron Barcelo</div>
+                        <div class="brand">República Dominicana</div>
+                    </div>
+                    <div class="price" onclick="window.location.href='ronbarcelo.html';">₽ 110,000</div>
+                </div>
+            </a>
+            <a href="Pago.html" class="item-link">
+                <div class="item">
+                    <div class="item-details">
+                        <div class="label">Licor de Hierbas</div>
+                        <div class="brand">Colombia</div>
+                    </div>
+                    <div class="price" onclick="window.location.href='licorhierbas.html';">₽ 25,000</div>
+                </div>
+            </a>
+            <a href="Pago.html" class="item-link">
+                <div class="item">
+                    <div class="item-details">
+                        <div class="label">Vodka Absolut</div>
+                        <div class="brand">Suecia</div>
+                    </div>
+                    <div class="price" onclick="window.location.href='vodkaabsolut.html';">₽ 140,000</div>
+                </div>
+            </a>
+            <a href="Pago.html" class="item-link">
+                <div class="item">
+                    <div class="item-details">
+                        <div class="label">Gin Beefeater</div>
+                        <div class="brand">Inglaterra</div>
+                    </div>
+                    <div class="price" onclick="window.location.href='gin.html';">₽ 75,000</div>
+                </div>
+            </a>
+            <a href="Pago.html" class="item-link">
+                <div class="item">
+                    <div class="item-details">
+                        <div class="label">Cerveza Corona</div>
+                        <div class="brand">México</div>
+                    </div>
+                    <div class="price" onclick="window.location.href='cerveza.html';">₽ 12,000</div>
+                </div>
+            </a>
+            <a href="Pago.html" class="item-link">
+                <div class="item">
+                    <div class="item-details">
+                        <div class="label">Sidra de Manzana</div>
+                        <div class="brand">España</div>
+                    </div>
+                    <div class="price" onclick="window.location.href='sidra.html';">₽ 40,000</div>
+                </div>
+            </a>
+        </div>
+    </div>
+</body>
+</html>

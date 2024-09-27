@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galería de Imágenes</title>
+    <style>
+        body {
+            background-color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden; /* Evita el scroll */
+        }
+
+        .gallery-container {
+            position: relative;
+            width: 80%;
+            max-width: 800px;
+            overflow: hidden;
+            border: 2px solid #ffffff;
+            border-radius: 10px;
+            transition: transform 0.3s; /* Efecto de crecimiento */
+        }
+
+        .gallery-container:hover {
+            transform: scale(1.05); /* Crece al pasar el mouse */
+        }
+
+        .image {
+            display: none;
+            width: 100%;
+            height: auto;
+            object-fit: cover; /* Ajusta la imagen sin deformar */
+        }
+
+        .active {
+            display: block;
+        }
+
+        .background-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            filter: blur(10px); /* Desenfoque */
+            z-index: -1; /* Enviar al fondo */
+        }
+
+        .arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(255, 255, 255, 0.5);
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            padding: 10px;
+            font-size: 24px;
+            color: black;
+            z-index: 10;
+            transition: transform 0.3s; /* Efecto de crecimiento */
+        }
+
+        .arrow:hover {
+            transform: scale(1.2); /* Crece al pasar el mouse */
+        }
+
+        .left {
+            left: 10px;
+        }
+
+        .right {
+            right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="gallery-container">
+        <button class="arrow left" id="prevBtn">&#10094;</button>
+        <img src="https://lacolombianpower.com/cdn/shop/files/guaro.jpg?v=1696294915" class="image active">
+        <img src="https://mir-s3-cdn-cf.behance.net/projects/404/00d0e7146633645.Y3JvcCw4NDcsNjYzLDg4LDA.jpg" class="image">
+        <img src="https://static.wixstatic.com/media/477dc5_1011e79f85cb4c1b8e2696e57b38a8a2~mv2.png/v1/fill/w_560,h_560,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/477dc5_1011e79f85cb4c1b8e2696e57b38a8a2~mv2.png" class="image">
+        <img src="https://www.arflina.com/ProductoImagen/gp351/727.jpg" class="image">
+        <img src="https://mercaldas.vtexassets.com/arquivos/ids/1290212/Vodka-SMIRNOFF-x350-ml_49371.jpg?v=637958284003500000" class="image">
+        <img src="https://lacaretalicores.com/cdn/shop/products/15123473_1788498684734958_1584470183707977580_o_1.jpg?v=1603476906" class="image">
+        <img src="https://http2.mlstatic.com/D_NQ_NP_663853-MCO48137751458_112021-O.webp" class="image">
+        <img src="https://lavaquita.co/cdn/shop/products/supermercados_la_vaquita_licor_ron_viejo_caldas_esencial_750ml_1024x1024.jpg?v=1633532340" class="image">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnl6dDMjaIeJ9dfQeLqaZpi1AM2JB-NpfOfQ&s" class="image">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSA2JAUx9CYR1kcl-HSVDpfxo9JmHPcrad87w&s" class="image">
+        <img src="https://www.cervezapoker.com/sites/g/files/seuoyk231/files/2024-02/bgBottle-transformed%20%281%29.jpg" class="image">
+        <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/b1b44215402823.562909633f131.jpg" class="image">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRx5fANkft2EX_mAMKI2f3lLNLPf3DX_3qefA&s" class="image">
+        <img src="https://s1.img.bidsquare.com/item/xl/1189/11893183.jpeg" class="image">
+        <img src="https://http2.mlstatic.com/D_NQ_NP_742518-MLA31061617601_062019-O.webp" class="image">
+        <img src="https://media.diageocms.com/media/2qnpuknu/pe-_1_hi_hero_image_baileys_original-1.jpg" class="image">
+        <img src="https://cocteleriacreativa.com/sites/default/files/styles/cover/public/imagenes/ingredientes/Cachaca-51_Cocteleria-Creativa.jpg?itok=4B3naviP" class="image">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSokKF0A8zbQMg4Ms4e2XDv2SEDkowheV-r6w&s" class="image">
+        <img src="https://m.media-amazon.com/images/I/71ZYFkUjEiL.jpg" class="image">
+        <img src="https://actualidaddealemania.com/wp-content/uploads/2020/05/jc3a4germeister-licor-hierbas-aleman-alemania.jpg" class="image">
+        <img src="https://exitocol.vtexassets.com/arquivos/ids/24488427/Vodka-Absolut-X-700-ml-1151115_a.jpg?v=638613163904270000" class="image">
+        <img src="https://jumbocolombiaio.vtexassets.com/arquivos/ids/408661-150-150?v=637989634625230000&width=150&height=150&aspect=true" class="image">
+        <img src="https://licoresmedellin.com/cdn/shop/files/PACA_CERVEZA_CORONA_EXTRA_24UND.jpg?v=1715688966&width=480" class="image">
+        <img src="https://d31f1ehqijlcua.cloudfront.net/n/8/d/8/3/8d83e351b8a819a90263283494d89f2767934b11_Wine_451419_01.jpg" class="image">
+        <button class="arrow right" id="nextBtn">&#10095;</button>
+        <img src="https://lacolombianpower.com/cdn/shop/files/guaro.jpg?v=1696294915" class="background-image"> <!-- Imagen de fondo -->
+    </div>
+
+    <script>
+        let currentIndex = 0;
+        const images = document.querySelectorAll('.image');
+
+        function showImage(index) {
+            images.forEach((img, i) => {
+                img.classList.remove('active');
+                if (i === index) {
+                    img.classList.add('active');
+                }
+            });
+        }
+
+        function nextImage() {
+            currentIndex = (currentIndex + 1) % images.length;
+            showImage(currentIndex);
+        }
+
+        function prevImage() {
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            showImage(currentIndex);
+        }
+
+        document.getElementById('nextBtn').onclick = nextImage;
+        document.getElementById('prevBtn').onclick = prevImage;
+
+        setInterval(nextImage, 10000); // Cambia la imagen cada 10 segundos
+
+        showImage(currentIndex); // Mostrar la primera imagen al cargar
+    </script>
+</body>
+</html>

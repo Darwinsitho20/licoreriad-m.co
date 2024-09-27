@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Compras - Inicio de Sesión</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background-image: url('https://www.licoresalis.com/web/image/4715-07c93907/Imagen-1.jpg'); /* Coloca aquí la URL de la imagen de fondo */
+            background-size: contain; /* Cambiado a contain para ver toda la imagen */
+            background-position: center center; /* Centrar la imagen vertical y horizontalmente */
+            background-repeat: no-repeat;
+            background-attachment: fixed; /* Mantiene la imagen fija mientras se hace scroll */
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .login-box {
+            text-align: center;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+            border-radius: 10px;
+            margin: auto;
+            width: 300px; /* Ancho del cuadro de login */
+        }
+
+        .login-box h1 {
+            margin-bottom: 20px;
+        }
+
+        .login-box label {
+            display: block;
+            margin-bottom: 5px;
+            text-align: left;
+        }
+
+        .login-box input {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 15px;
+            border: none;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .login-button, .register-button {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%; /* Ajusta el botón al ancho del cuadro */
+            margin-bottom: 10px; /* Espacio entre botones */
+        }
+
+        .login-button {
+            background-color: #cc9900; /* Color amarillo oscuro */
+            color: white;
+        }
+
+        .register-button {
+            background-color: red; /* Color rojo */
+            color: white;
+        }
+
+        .login-button:hover, .register-button:hover {
+            opacity: 0.9; /* Efecto de hover */
+        }
+
+        .show-password {
+            cursor: pointer;
+            margin-top: 10px;
+            display: inline-block;
+        }
+    </style>
+    <script>
+        function redirectToLocation() {
+            // Redirecciona a la ubicación GPS del usuario
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    var lat = position.coords.latitude;
+                    var long = position.coords.longitude;
+                    window.location.href = "https://www.google.com/maps/@"+lat+","+long+",15z"; // Cambia el zoom según sea necesario
+                }, function() {
+                    alert("No se pudo obtener la ubicación.");
+                });
+            } else {
+                alert("La geolocalización no es compatible con este navegador.");
+            }
+        }
+
+        function validateForm(event) {
+            event.preventDefault(); // Previene el envío del formulario
+
+            // Obtener valores de los campos
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            // Validar campos
+            if (!email || !password) {
+                alert("Por favor, complete todos los campos.");
+                return;
+            }
+
+            // Redireccionar si los campos son válidos
+            window.location.href = "vercatalogo.html";
+        }
+
+        // Mostrar/ocultar contraseña
+        function togglePassword() {
+            const passwordInput = document.getElementById('password');
+            const isVisible = passwordInput.type === 'text';
+            passwordInput.type = isVisible ? 'password' : 'text';
+            this.textContent = isVisible ? '👁️' : '👁️‍🗨️'; // Cambia el icono
+        }
+    </script>
+</head>
+<body>
+    <div class="login-box">
+        <h1>Inicio de Sesión</h1>
+        <label for="email">Correo Electrónico:</label>
+        <input type="email" id="email" name="email" placeholder="Ingrese su correo" required>
+        <label for="password">Contraseña:</label>
+        <input type="password" id="password" name="password" placeholder="Ingrese su contraseña" required>
+        <span class="show-password" onclick="togglePassword()">👁️</span> <!-- Mostrar/Ocultar Contraseña -->
+        <button class="login-button" onclick="validateForm(event)">Iniciar Sesión</button>
+        <a href="registrarusuario.html"><button class="register-button">Registrarse</button></a>
+    </div>
+</body>
+</html>
