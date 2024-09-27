@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Usuario</title>
+    <style>
+        body {
+            background-image: url('https://via.placeholder.com/1920x1080'); /* Cambia esta URL por la imagen de fondo deseada */
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .registration-container {
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 25px;
+            padding: 20px;
+            width: 300px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+            text-align: center;
+        }
+
+        input[type="text"], input[type="email"], input[type="password"], input[type="date"], select {
+            width: calc(100% - 20px); /* Ajusta el ancho */
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box; /* Asegura que el padding no sume al ancho total */
+        }
+
+        .register-btn {
+            background-color: red;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            display: inline-flex;
+            align-items: center;
+            width: 100%; /* Asegura que el botón ocupe todo el ancho */
+        }
+
+        .message {
+            margin-top: 15px;
+            color: green;
+            display: none; /* Oculta el mensaje inicialmente */
+        }
+
+        .show-password {
+            cursor: pointer;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="registration-container">
+        <h2>Registrar Usuario</h2>
+        <form id="registrationForm">
+            <input type="text" placeholder="Nombre Completo" required>
+            <input type="email" placeholder="Correo Electrónico" required>
+            <input type="text" placeholder="Número de Documento" required>
+            <input type="date" placeholder="Fecha de Nacimiento" required>
+            <select required>
+                <option value="">Seleccionar Cargo</option>
+                <option value="administrador">Administrador</option>
+                <option value="empleado">Empleado</option>
+                <option value="asociado">Asociado</option>
+            </select>
+            <input type="password" id="password" placeholder="Contraseña" required>
+            <span class="show-password" id="togglePassword">👁️</span>
+            <button type="submit" class="register-btn">Registrar Usuario</button>
+        </form>
+        <div class="message" id="successMessage">Espere a que el administrador apruebe su cuenta.</div>
+    </div>
+
+    <script>
+        document.getElementById('registrationForm').onsubmit = function(event) {
+            event.preventDefault(); // Evita el envío del formulario
+
+            // Muestra el mensaje de éxito
+            const message = document.getElementById('successMessage');
+            message.style.display = 'block';
+
+            // Elimina el mensaje después de 15 segundos
+            setTimeout(() => {
+                message.style.display = 'none';
+            }, 15000);
+        };
+
+        // Mostrar/ocultar contraseña
+        document.getElementById('togglePassword').onclick = function() {
+            const passwordInput = document.getElementById('password');
+            const isVisible = passwordInput.type === 'text';
+            passwordInput.type = isVisible ? 'password' : 'text';
+            this.textContent = isVisible ? '👁️' : '👁️‍🗨️'; // Cambia el icono
+        };
+    </script>
+</body>
+</html>

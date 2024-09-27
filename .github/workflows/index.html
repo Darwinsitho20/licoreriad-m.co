@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bienvenido a Nuestro Sitio</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background-image: url('https://nosvamosdevinos.com/wp-content/uploads/2022/07/La-Honda-fino-en-rama.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center; /* Centrando verticalmente */
+            height: 100vh;
+            perspective: 1000px; /* Efecto 3D */
+            animation: fadeIn 2s;
+        }
+
+        .welcome-box {
+            text-align: center;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.7); /* Fondo semitransparente */
+            border-radius: 10px;
+            margin: auto;
+            transform: rotateX(20deg); /* Efecto 3D */
+            transition: transform 0.3s ease; /* Suaviza la transformación */
+        }
+
+        /* Efecto de agrandamiento para el cuadro semitransparente */
+        .welcome-box:hover {
+            transform: scale(1.1) rotateX(20deg); /* Aumenta el tamaño en hover */
+        }
+
+        .welcome-box h1, .welcome-box p {
+            color: black;
+        }
+
+        /* Botón interactivo en 3D */
+        button#verCatalogo {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 15px;
+            transition: transform 0.3s ease, background-color 0.3s ease; /* Suaviza la transformación y color */
+        }
+
+        /* Efecto de agrandamiento para el botón */
+        button#verCatalogo:hover {
+            transform: scale(1.2); /* Aumenta el tamaño al pasar el mouse */
+            background-color: #45a049; /* Color más oscuro en hover */
+        }
+
+        /* Estilos para la barra de navegación */
+        .navbar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: black;
+            display: flex;
+            justify-content: center; /* Centra los botones horizontalmente */
+            padding: 10px 0;
+        }
+
+        .navbar a {
+            color: white;
+            margin: 0 15px; /* Espaciado entre los botones */
+            text-decoration: none;
+            padding: 10px 15px;
+            border: 1px solid transparent; /* Borde transparente para mantener el tamaño al hover */
+            transition: background-color 0.3s, border 0.3s; /* Suaviza el cambio de color */
+        }
+
+        .navbar a:hover {
+            background-color: #333; /* Color de fondo al pasar el mouse */
+            border: 1px solid white; /* Borde blanco al pasar el mouse */
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="welcome-box">
+        <h1>Bienvenido a Nuestro Sitio</h1>
+        <p>¡Descubre productos de alta calidad!</p>
+        <a href="vercatalogoinicial.html"><button id="verCatalogo">Ver Catálogo</button></a>
+    </div>
+
+    <div class="navbar">
+        <a href="sistemadecompras.html">Sistema de Compras</a>
+        <a href="contacto.html">Contacto</a>
+        <a href="#" id="ubicacionBtn">Ubicación</a> <!-- Botón de ubicación -->
+    </div>
+
+    <script>
+        document.getElementById('ubicacionBtn').addEventListener('click', function() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    const lat = position.coords.latitude;
+                    const lng = position.coords.longitude;
+                    const googleMapsUrl = `https://www.google.com/maps?q=${lat},${lng}`;
+                    
+                    // Abrir Google Maps en una nueva pestaña
+                    window.open(googleMapsUrl, '_blank');
+                }, function() {
+                    alert('No se pudo obtener la ubicación. Asegúrate de que los servicios de ubicación estén habilitados.');
+                });
+            } else {
+                alert('La geolocalización no es compatible con este navegador.');
+            }
+        });
+    </script>
+</body>
+</html>
